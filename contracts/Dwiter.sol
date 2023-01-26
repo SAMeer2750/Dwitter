@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.8;
 
 contract dwiter {
     struct dweet {
@@ -18,7 +18,7 @@ contract dwiter {
     dweet[] public dweets;
     uint256 public ID;
 
-    event nweDweet(address from, string message, uint256 id, uint256 timeStamp);
+    event newDweet (address from, string message, uint256 id, uint256 timeStamp);
 
     function createDweet(string memory _message) public {
         ID++;
@@ -28,7 +28,7 @@ contract dwiter {
         userDweets[msg.sender] = Dweet;
         dweets.push(Dweet);
         addressDweets[msg.sender].push(Dweet);
-        emit nweDweet(msg.sender, Message, ID, timeStamp);
+        emit newDweet (msg.sender, Message, ID, timeStamp);
     }
 
     function addBookMark(uint256 _id) public {
@@ -49,13 +49,13 @@ contract dwiter {
         followings[msg.sender].push(_profile);
     }
 
-    // function getDweetByAdderss()
-    //     public
-    //     view
-    //     returns(dweet[])
-    // {
-
-    // }
+    function getDweetByAdderss(address _profile)
+        public
+        view
+        returns(dweet[] memory)
+    {
+        return(addressDweets[_profile]);
+    }
 
     function getFollowers(address _profile)
         public
