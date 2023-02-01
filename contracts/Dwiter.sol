@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.8;
+pragma solidity ^0.8.7;
 
 contract dwiter {
     struct dweet {
@@ -10,15 +10,16 @@ contract dwiter {
     }
 
     mapping(address => dweet) public userDweets;
-    mapping(address => dweet[]) addressDweets;
+    mapping(address => dweet[]) public addressDweets;
     mapping(address => address[]) public followings;
     mapping(address => address[]) public followers;
     mapping(address => dweet[]) public bookMarks;
 
     dweet[] public dweets;
-    uint256 public ID;
+    uint256 public ID = 0;
 
-    event newDweet (address from, string message, uint256 id, uint256 timeStamp);
+    event NewDweet (address from, string message, uint256 id, uint256 timeStamp);
+    event Follow (address follower, address following);
 
     function createDweet(string memory _message) public {
         ID++;
@@ -28,7 +29,7 @@ contract dwiter {
         userDweets[msg.sender] = Dweet;
         dweets.push(Dweet);
         addressDweets[msg.sender].push(Dweet);
-        emit newDweet (msg.sender, Message, ID, timeStamp);
+        emit NewDweet (msg.sender, Message, ID, timeStamp);
     }
 
     function addBookMark(uint256 _id) public {
@@ -47,6 +48,7 @@ contract dwiter {
     function follow(address _profile) public payable {
         followers[_profile].push(msg.sender);
         followings[msg.sender].push(_profile);
+        emit Follow (msg.sender, _profile);
     }
 
     function getDweetByAdderss(address _profile)
@@ -81,4 +83,6 @@ contract dwiter {
     function getBookMark() public view returns (dweet[] memory) {
         return (bookMarks[msg.sender]);
     }
+
+
 }
