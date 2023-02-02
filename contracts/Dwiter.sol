@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
+
 pragma solidity ^0.8.7;
 
 contract dwiter {
@@ -9,6 +10,7 @@ contract dwiter {
         uint256 timeStamp;
     }
 
+    //Maps
     mapping(address => dweet) public userDweets;
     mapping(address => dweet[]) public addressDweets;
     mapping(address => address[]) public followings;
@@ -19,7 +21,9 @@ contract dwiter {
     dweet[] public dweets;
     uint256 public ID = 0;
 
-    event newDweet (address from, string message, uint256 id, uint256 timeStamp);
+    //Events
+    event newDweet(address from, string message, uint256 id, uint256 timeStamp);
+    event Follow(address Follower, address Following, uint256 timeStamp);
 
     function createDweet(string memory _message) public {
         ID++;
@@ -29,10 +33,10 @@ contract dwiter {
         userDweets[msg.sender] = Dweet;
         dweets.push(Dweet);
         addressDweets[msg.sender].push(Dweet);
-        for(uint256 i = 0 ; i<followers[msg.sender].length; i++){
+        for (uint256 i = 0; i < followers[msg.sender].length; i++) {
             followingsDweets[followers[msg.sender][i]].push(Dweet);
         }
-        emit newDweet (msg.sender, Message, ID, timeStamp);
+        emit newDweet(msg.sender, Message, ID, timeStamp);
     }
 
     function addBookMark(uint256 _id) public {
@@ -51,14 +55,15 @@ contract dwiter {
     function follow(address _profile) public payable {
         followers[_profile].push(msg.sender);
         followings[msg.sender].push(_profile);
+        emit Follow(msg.sender, _profile, block.timestamp);
     }
 
     function getDweetByAdderss(address _profile)
         public
         view
-        returns(dweet[] memory)
+        returns (dweet[] memory)
     {
-        return(addressDweets[_profile]);
+        return (addressDweets[_profile]);
     }
 
     function getFollowers(address _profile)
@@ -86,8 +91,7 @@ contract dwiter {
         return (bookMarks[msg.sender]);
     }
 
-    function getFollowingDweets() public view returns (dweet[] memory){
-        return(followingsDweets[msg.sender]);
+    function getFollowingDweets() public view returns (dweet[] memory) {
+        return (followingsDweets[msg.sender]);
     }
-
 }
