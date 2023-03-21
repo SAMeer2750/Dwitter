@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.7;
 
@@ -17,15 +17,37 @@ contract dwiter {
     mapping(address => address[]) public followers;
     mapping(address => dweet[]) public bookMarks;
     mapping(address => dweet[]) public followingsDweets;
+    mapping(address => string) public users;
 
     dweet[] public dweets;
     uint256 public ID = 0;
+    address[] public userAddress;
 
     //Events
     event newDweet(address from, string message, uint256 id, uint256 timeStamp);
     event Follow(address Follower, address Following, uint256 timeStamp);
 
-    function createDweet(string memory _message) public {
+    //modifiers
+    modifier ifUser {
+        require(ifUsers());
+        _;
+    }
+
+    function createAccount(string memory _userName) public {
+        users[msg.sender] = _userName; 
+        userAddress.push(msg.sender);
+    }
+
+    function ifUsers() public view returns(bool){
+        for(uint i=0; i < userAddress.length; i++){
+            if(userAddress[i] == msg.sender){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function createDweet(string memory _message) public ifUser{
         ID++;
         uint256 timeStamp = block.timestamp;
         string memory Message = _message;
@@ -39,20 +61,20 @@ contract dwiter {
         emit newDweet(msg.sender, Message, ID, timeStamp);
     }
 
-    function addBookMark(uint256 _id) public {
+    function addBookMark(uint256 _id) public ifUser{
         _id = _id - 1;
         dweet memory Dweet = dweets[_id];
         bookMarks[msg.sender].push(Dweet);
     }
 
-    function reDweet(uint256 _id) public {
+    function reDweet(uint256 _id) public ifUser{
         _id = _id - 1;
         dweet memory Dweet = dweets[_id];
         string memory Message = Dweet.message;
         createDweet(Message);
     }
 
-    function follow(address _profile) public payable {
+    function follow(address _profile) public payable ifUser{
         followers[_profile].push(msg.sender);
         followings[msg.sender].push(_profile);
         emit Follow(msg.sender, _profile, block.timestamp);
