@@ -8,7 +8,9 @@ import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
 contract DweCoin is ERC20, ERC20Permit, ERC20Votes {
     uint256 MaxSupply = 1000 * 10 ** decimals();
     
-    constructor() ERC20("dweCoin", "dC") ERC20Permit("dweCoin") {
+    constructor() 
+    ERC20("dweCoin", "dC") 
+    ERC20Permit("dweCoin") {
         _mint(msg.sender, MaxSupply);
     }
 
