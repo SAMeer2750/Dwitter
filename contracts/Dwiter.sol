@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.7;
+pragma solidity ^0.8.9;
 
-contract dwiter {
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract Dwiter is Ownable {
     struct dweet {
         uint256 id;
         address from;
