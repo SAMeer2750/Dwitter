@@ -71,7 +71,7 @@ function Navbar({account,setAccount}) {
           {/* eslint-disable-next-line */}
           <img src={require("./profile.jpg")} />
           <p>
-            {account.slice(0, 6) + '...' + account.slice(38, 42)}{" "}
+            {account.slice(0, 6) + '...' + account.slice(38, 42)}
           </p>
         </button>
         ):(

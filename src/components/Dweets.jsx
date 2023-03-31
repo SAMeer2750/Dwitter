@@ -1,17 +1,25 @@
 import React from "react";
 import "./Dweets.css";
 import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
+import { FaUserAlt } from 'react-icons/fa';
 
-function Dweets() {
+function Dweets({account}) {
   return (
     <div className="Dweets">
       <div className="upper">
         <div className="up">
           {/* eslint-disable-next-line */}
-          <img src={require("./profile.jpg")} />
-          <p id="name">sam.eer..</p>
           {/* <p>|</p> */}
-          <p id="address">@0x123..f3</p>
+          <img src={require("./profile.jpg")} />
+          {account? (
+            <>
+            <p id="name">sam.eer..</p>
+            <p id="address">{account.slice(0, 6) + '...' + account.slice(38, 42)}</p></>
+          ):(
+            <>
+            <p id="name">user</p>
+            <p id="address">@0x000..00</p></>
+          )}
           <p id="dash">-</p>
           <p id="date">Feb 28</p>
         </div>

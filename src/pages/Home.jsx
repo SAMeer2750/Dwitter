@@ -49,7 +49,7 @@ function Home() {
         <Dweet />
         <p id="show">Showing 500 tweets.</p>
         <hr />
-        <Dweets/>
+        <Dweets account={account}/>
       </div>
     </div>
   );
