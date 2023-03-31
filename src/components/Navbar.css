@@ -51,7 +51,7 @@
   color: white;
   background-color: rgb(10, 148, 212);
   border: none;
-  padding: 0.7rem 2rem;
+  padding: 0.7rem 4.5rem;
   font-size: 1.1rem;
   border-radius: 25px;
   margin-top: 0.5rem;
@@ -70,9 +70,9 @@
   justify-content: center;
   border: none;
   border-radius: 45px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   padding: 0.15rem 1rem;
-  border: 1px solid grey;
+  border: 2px solid grey;
 }
 
 .Navbar button#connectwallet p {

@@ -6,7 +6,7 @@ function Dweet() {
     <div className="Dweet">
       <div className="up">
         {/* eslint-disable-next-line */}
-        <img src={require("./pfp2.png")} />
+        <img src={require("./profile.jpg")} />
         <textarea placeholder="What's Happening..?"></textarea>
       </div>
       <div className="down">

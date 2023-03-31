@@ -69,7 +69,7 @@ function Navbar({account,setAccount}) {
         {account?(
         <button id="connectwallet">
           {/* eslint-disable-next-line */}
-          <img src={require("./pfp2.png")} />
+          <img src={require("./profile.jpg")} />
           <p>
             {account.slice(0, 6) + '...' + account.slice(38, 42)}{" "}
           </p>
@@ -77,7 +77,7 @@ function Navbar({account,setAccount}) {
         ):(
           <button id="connectwallet" onClick = {connectHandler}>
           {/* eslint-disable-next-line */}
-          <img src={require("./pfp2.png")} />
+          <img src={require("./profile.jpg")} />
           <p>Connect Wallet</p>
         </button>
         )}

@@ -8,7 +8,7 @@ function Dweets() {
       <div className="upper">
         <div className="up">
           {/* eslint-disable-next-line */}
-          <img src={require("./pfp2.png")} />
+          <img src={require("./profile.jpg")} />
           <p id="name">Ankit Gupta</p>
           {/* <p>|</p> */}
           <p id="address">@0x123..f3</p>
@@ -21,8 +21,7 @@ function Dweets() {
       </div>
       <div className="down">
         <p className="content">
-          HTML → CSS → Javascript → ReactJS → API → NextJS → Database This seems
-          to be the most popular path these days. What's yours?
+          This is currently a static prototype of decentral twitter. It can connect to a Wallet 
         </p>
       </div>
     </div>
