@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+
+.Navbar {
+  max-height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  border-right: 1px solid grey;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Navbar .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Permanent Marker", cursive;
+  padding: 0.5rem;
+}
+
+.Navbar .logo p{
+  font-size: 2.1rem;
+  margin: 0;
+  color: rgb(5, 131, 189);
+}
+
+.Navbar .logo img {
+  width: 5rem;
+  height: 5rem;
+}
+
+.Navbar .menuDetail {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-left: 1rem;
+}
+
+.Navbar .menuDetail p {
+  margin-left: 0.5rem;
+  font-weight: 600;
+}
+
+.Navbar .menuDetail .menuImage {
+  width: 2.2rem;
+  height: 2.1rem;
+}
+
+.Navbar button#dweet {
+  color: white;
+  background-color: rgb(10, 148, 212);
+  border: none;
+  padding: 0.7rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 25px;
+  margin-top: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+.Navbar button#connectwallet img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+}
+
+.Navbar button#connectwallet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 45px;
+  margin-bottom: 0.5rem;
+  padding: 0.15rem 1rem;
+  border: 1px solid grey;
+}
+
+.Navbar button#connectwallet p {
+  margin-left: 0.75rem;
+  font-size: 1.1rem;
+}

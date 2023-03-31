@@ -1,0 +1,46 @@
+.Dweets{
+    width: 90%;
+    border: 1px solid rgb(197, 197, 197);
+    padding: 1rem;
+}
+
+.Dweets .upper{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.Dweets .upright{
+    margin-right: 0.15rem;
+}
+
+.Dweets .up p{
+    margin-left: 0.35rem;
+}
+
+.Dweets .up p{
+    font-size: 1.05rem;
+}
+
+.Dweets .down .content{
+    margin-left: 0.35rem;
+}
+
+.Dweets .up p#name{
+    font-weight: 650;
+}
+
+.Dweets .up p#address, p#date, p#dash{
+    color: rgb(99, 98, 98);
+}
+
+.Dweets .up{
+    display: flex;
+    align-items: flex-start;
+}
+
+.Dweets .up img{
+    height: 4rem;
+    width: 4rem;
+    border-radius: 100%;
+}

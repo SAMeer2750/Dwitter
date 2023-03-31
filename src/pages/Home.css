@@ -1,0 +1,47 @@
+.Home{
+    display: flex;
+}
+
+.Home .leftContent{
+    width: 22%;
+    position: sticky;
+}
+
+.Home .rightContent{
+    width: 78%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.Home .rightContent .head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Home .rightContent .head input{
+    width: 30%;
+    border: none;
+    background-color: rgb(204, 204, 204);
+    border-radius: 25px;
+    font-size: 1.1rem;
+    padding: 0.5rem;
+}
+
+.Home .rightContent .head2{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.Home .rightContent .head2 p{
+    margin-top: 0;
+}
+
+.Home .rightContent p#show{
+    text-align: center;
+    color: rgb(3, 119, 173);
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin: 0;
+}
