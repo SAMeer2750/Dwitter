@@ -5,8 +5,16 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import PersonIcon from "@mui/icons-material/Person";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { ethers } from "ethers";
 
-function Navbar() {
+function Navbar({account,setAccount}) {
+
+  const connectHandler = async()=>{
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    const account = ethers.utils.getAddress(accounts[0])
+    setAccount(account);
+  }
+
   return (
     <div className="Navbar">
       <div className="menu">
@@ -57,13 +65,23 @@ function Navbar() {
         {/* <button id="dweet">Dweet</button> */}
       </div>
       <button id="dweet">Dweet</button>
-      <div className="connectWallet">
+      
+        {account?(
         <button id="connectwallet">
+          {/* eslint-disable-next-line */}
+          <img src={require("./pfp2.png")} />
+          <p>
+            {account.slice(0, 6) + '...' + account.slice(38, 42)}{" "}
+          </p>
+        </button>
+        ):(
+          <button id="connectwallet" onClick = {connectHandler}>
           {/* eslint-disable-next-line */}
           <img src={require("./pfp2.png")} />
           <p>Connect Wallet</p>
         </button>
-      </div>
+        )}
+      
     </div>
   );
 }
