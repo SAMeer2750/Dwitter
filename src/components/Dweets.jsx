@@ -9,7 +9,7 @@ function Dweets() {
         <div className="up">
           {/* eslint-disable-next-line */}
           <img src={require("./profile.jpg")} />
-          <p id="name">Ankit Gupta</p>
+          <p id="name">sam.eer..</p>
           {/* <p>|</p> */}
           <p id="address">@0x123..f3</p>
           <p id="dash">-</p>
